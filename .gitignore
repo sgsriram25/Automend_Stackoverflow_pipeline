@@ -1,4 +1,4 @@
 data/raw/ 
 data/processed/ 
-logs/
-.env.example
+loggs/
+.env
