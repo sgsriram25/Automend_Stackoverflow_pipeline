@@ -1,0 +1,15 @@
+# =============================================================================
+# FILE 4: .dvcignore
+# =============================================================================
+# Similar to .gitignore for DVC
+# 
+# # Ignore Python cache
+# __pycache__
+# *.pyc
+# 
+# # Ignore logs
+# logs/
+# 
+# # Ignore IDE files
+# .idea/
+# .vscode/
