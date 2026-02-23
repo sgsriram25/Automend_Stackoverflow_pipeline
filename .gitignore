@@ -1,3 +1,6 @@
-logs/
-data/raw/
-data/processed/
+data/raw/ 
+data/processed/ 
+data/validated/ 
+data/training/ 
+*.dvc 
+.dvc/ 
