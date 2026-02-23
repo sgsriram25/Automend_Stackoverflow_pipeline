@@ -1,0 +1,14 @@
+2026-02-22 16:01:25,445 - __main__ - INFO - ============================================================
+2026-02-22 16:01:25,446 - __main__ - INFO - STARTING DATA PREPROCESSING
+2026-02-22 16:01:25,447 - __main__ - INFO - ============================================================
+2026-02-22 16:01:25,926 - __main__ - INFO - Loaded 18838 raw records
+2026-02-22 16:03:01,955 - __main__ - INFO - Processed 18780 records (58 filtered)
+2026-02-22 16:03:05,791 - __main__ - INFO - Saved processed data to C:\Northeastern\MSCS\MLOps\Automend_Stackoverflow_pipeline\data\processed\qa_pairs_processed.json
+2026-02-22 16:03:05,811 - __main__ - INFO - Preprocessing completed in 100.3s
+2026-02-22 20:11:05,290 - __main__ - INFO - ============================================================
+2026-02-22 20:11:05,291 - __main__ - INFO - STARTING DATA PREPROCESSING
+2026-02-22 20:11:05,291 - __main__ - INFO - ============================================================
+2026-02-22 20:11:05,862 - __main__ - INFO - Loaded 18838 raw records
+2026-02-22 20:12:53,098 - __main__ - INFO - Processed 18780 records (58 filtered)
+2026-02-22 20:12:57,609 - __main__ - INFO - Saved processed data to C:\Northeastern\MSCS\MLOps\Automend_Stackoverflow_pipeline\data\processed\qa_pairs_processed.json
+2026-02-22 20:12:57,625 - __main__ - INFO - Preprocessing completed in 112.3s

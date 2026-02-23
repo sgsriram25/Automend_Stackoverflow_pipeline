@@ -1,0 +1,60 @@
+[project]
+name = "automend-pipeline"
+version = "0.1.0"
+description = "AutoMend StackOverflow Data Pipeline for MLOps"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    # === Airflow ===
+    "apache-airflow>=2.8.0",
+    
+    # === Data Processing ===
+    "pandas>=2.1.0",
+    "numpy>=1.26.0",
+    "requests>=2.31.0",
+    
+    # === Data Validation (lighter alternatives) ===
+    "great-expectations>=0.18.0",
+    "pandera>=0.18.0",  # Lightweight schema validation
+    
+    # === Bias Detection ===
+    "fairlearn>=0.10.0",
+    
+    # === Data Version Control ===
+    "dvc>=3.30.0",
+    
+    # === Testing ===
+    "pytest>=7.4.0",
+    "pytest-cov>=4.1.0",
+    
+    # === Logging & Alerts ===
+    "loguru>=0.7.0",
+    "slack-sdk>=3.26.0",
+    
+    # === Utilities ===
+    "python-dotenv>=1.0.0",
+    "pyyaml>=6.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "ruff>=0.1.0",
+    "black>=23.0.0",
+    "mypy>=1.7.0",
+]
+
+[tool.uv]
+dev-dependencies = [
+    "pytest>=7.4.0",
+    "pytest-cov>=4.1.0",
+    "ruff>=0.1.0",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = "test_*.py"
+addopts = "-v --tb=short"
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"

@@ -1,0 +1,10 @@
+{
+  "total_slices": 240,
+  "biased_slices": 170,
+  "bias_rate": 0.7083333333333334,
+  "high_severity_count": 15,
+  "medium_severity_count": 48,
+  "low_severity_count": 107,
+  "mitigation_suggestions_count": 149,
+  "timestamp": "2026-02-22T20:18:51.909783"
+}

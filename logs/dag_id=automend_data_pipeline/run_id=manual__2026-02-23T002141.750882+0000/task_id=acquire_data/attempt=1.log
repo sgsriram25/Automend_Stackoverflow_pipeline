@@ -1,0 +1,30 @@
+[2026-02-23T00:21:50.629+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-02-23T00:21:50.969+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: automend_data_pipeline.acquire_data manual__2026-02-23T00:21:41.750882+00:00 [queued]>
+[2026-02-23T00:21:50.988+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: automend_data_pipeline.acquire_data manual__2026-02-23T00:21:41.750882+00:00 [queued]>
+[2026-02-23T00:21:50.995+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 3
+[2026-02-23T00:21:51.023+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): acquire_data> on 2026-02-23 00:21:41.750882+00:00
+[2026-02-23T00:21:51.035+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=123) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2026-02-23T00:21:51.039+0000] {standard_task_runner.py:63} INFO - Started process 127 to run task
+[2026-02-23T00:21:51.039+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'automend_data_pipeline', 'acquire_data', 'manual__2026-02-23T00:21:41.750882+00:00', '--job-id', '6', '--raw', '--subdir', 'DAGS_FOLDER/automend_pipeline_dag.py', '--cfg-path', '/tmp/tmp832cdblj']
+[2026-02-23T00:21:51.045+0000] {standard_task_runner.py:91} INFO - Job 6: Subtask acquire_data
+[2026-02-23T00:21:51.182+0000] {task_command.py:426} INFO - Running <TaskInstance: automend_data_pipeline.acquire_data manual__2026-02-23T00:21:41.750882+00:00 [running]> on host eebbfbfd60c7
+[2026-02-23T00:21:51.372+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='mlops-team' AIRFLOW_CTX_DAG_ID='automend_data_pipeline' AIRFLOW_CTX_TASK_ID='acquire_data' AIRFLOW_CTX_EXECUTION_DATE='2026-02-23T00:21:41.750882+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-02-23T00:21:41.750882+00:00'
+[2026-02-23T00:21:51.374+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-02-23T00:21:51.405+0000] {data_acquisition.py:297} INFO - ============================================================
+[2026-02-23T00:21:51.406+0000] {data_acquisition.py:298} INFO - STARTING DATA ACQUISITION
+[2026-02-23T00:21:51.407+0000] {data_acquisition.py:299} INFO - Mode: CSV
+[2026-02-23T00:21:51.408+0000] {data_acquisition.py:300} INFO - ============================================================
+[2026-02-23T00:21:51.409+0000] {data_acquisition.py:157} INFO - Loading questions from CSV: /opt/***/data/external/Stack_Qns_pl.csv
+[2026-02-23T00:21:58.872+0000] {data_acquisition.py:188} INFO - Loaded 19624 questions from CSV
+[2026-02-23T00:21:58.873+0000] {data_acquisition.py:194} INFO - Loading answers from CSV: /opt/***/data/external/Stack_Ans_pl.csv
+[2026-02-23T00:22:04.185+0000] {data_acquisition.py:217} INFO - Loaded 18838 answers from CSV
+[2026-02-23T00:22:08.811+0000] {data_acquisition.py:375} INFO - Successfully saved 18838 Q&A pairs to /opt/***/data/raw/qa_pairs_raw.json
+[2026-02-23T00:22:08.840+0000] {data_acquisition.py:392} INFO - Acquisition completed in 17.4s
+[2026-02-23T00:22:08.908+0000] {python.py:237} INFO - Done. Returned value was: {'source': 'csv', 'start_time': '2026-02-23T00:21:51.408973', 'questions_loaded': 19624, 'answers_matched': 18838, 'output_file': '/opt/***/data/raw/qa_pairs_raw.json', 'total_pairs': 18838, 'status': 'success', 'end_time': '2026-02-23T00:22:08.812582', 'duration_seconds': 17.403635}
+[2026-02-23T00:22:08.910+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-02-23T00:22:08.949+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=automend_data_pipeline, task_id=acquire_data, run_id=manual__2026-02-23T00:21:41.750882+00:00, execution_date=20260223T002141, start_date=20260223T002150, end_date=20260223T002208
+[2026-02-23T00:22:09.024+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2026-02-23T00:22:09.078+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-02-23T00:22:09.091+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

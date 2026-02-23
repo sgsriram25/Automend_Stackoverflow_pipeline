@@ -1,0 +1,64 @@
+[2026-02-22T21:52:01.869+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-02-22T21:52:02.198+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: automend_data_pipeline.validate_data manual__2026-02-22T21:49:30.853010+00:00 [queued]>
+[2026-02-22T21:52:02.216+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: automend_data_pipeline.validate_data manual__2026-02-22T21:49:30.853010+00:00 [queued]>
+[2026-02-22T21:52:02.223+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 3
+[2026-02-22T21:52:02.251+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): validate_data> on 2026-02-22 21:49:30.853010+00:00
+[2026-02-22T21:52:02.264+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=149) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2026-02-22T21:52:02.269+0000] {standard_task_runner.py:63} INFO - Started process 151 to run task
+[2026-02-22T21:52:02.267+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'automend_data_pipeline', 'validate_data', 'manual__2026-02-22T21:49:30.853010+00:00', '--job-id', '21', '--raw', '--subdir', 'DAGS_FOLDER/automend_pipeline_dag.py', '--cfg-path', '/tmp/tmpez16n6dd']
+[2026-02-22T21:52:02.273+0000] {standard_task_runner.py:91} INFO - Job 21: Subtask validate_data
+[2026-02-22T21:52:02.392+0000] {task_command.py:426} INFO - Running <TaskInstance: automend_data_pipeline.validate_data manual__2026-02-22T21:49:30.853010+00:00 [running]> on host a4b1983ac6e1
+[2026-02-22T21:52:02.566+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='mlops-team' AIRFLOW_CTX_DAG_ID='automend_data_pipeline' AIRFLOW_CTX_TASK_ID='validate_data' AIRFLOW_CTX_EXECUTION_DATE='2026-02-22T21:49:30.853010+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-02-22T21:49:30.853010+00:00'
+[2026-02-22T21:52:02.572+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-02-22T21:52:02.599+0000] {data_validation.py:378} INFO - ============================================================
+[2026-02-22T21:52:02.601+0000] {data_validation.py:379} INFO - STARTING DATA VALIDATION
+[2026-02-22T21:52:02.602+0000] {data_validation.py:380} INFO - ============================================================
+[2026-02-22T21:52:04.045+0000] {data_validation.py:392} INFO - Loaded 18780 records for validation
+[2026-02-22T21:52:04.047+0000] {data_validation.py:88} INFO - [PASS] schema_required_columns - All required columns present
+[2026-02-22T21:52:04.049+0000] {data_validation.py:88} INFO - [PASS] min_rows - Row count (18780) meets minimum (100)
+[2026-02-22T21:52:04.053+0000] {data_validation.py:88} INFO - [PASS] missing_values - Column 'question_id' has no missing values
+[2026-02-22T21:52:04.060+0000] {data_validation.py:88} INFO - [PASS] missing_values - Column 'question_body' has no missing values
+[2026-02-22T21:52:04.064+0000] {data_validation.py:88} INFO - [PASS] missing_values - Column 'answer_body' has no missing values
+[2026-02-22T21:52:04.067+0000] {data_validation.py:88} INFO - [PASS] duplicates - No duplicate question_ids found
+[2026-02-22T21:52:04.117+0000] {data_validation.py:88} INFO - [PASS] text_quality - Question lengths are acceptable
+[2026-02-22T21:52:04.177+0000] {data_validation.py:96} WARNING - [WARN] anomaly_detection - Found 2179 outliers in 'score'
+[2026-02-22T21:52:04.326+0000] {data_validation.py:96} WARNING - [WARN] anomaly_detection - Found 2015 outliers in 'answer_score'
+[2026-02-22T21:52:04.489+0000] {data_validation.py:96} WARNING - [WARN] anomaly_detection - Found 1970 outliers in 'view_count'
+[2026-02-22T21:52:04.608+0000] {data_validation.py:96} WARNING - [WARN] anomaly_detection - Found 2156 outliers in 'quality_score'
+[2026-02-22T21:52:04.777+0000] {data_validation.py:96} WARNING - [WARN] anomaly_detection - Found 1324 records with uncleaned HTML
+[2026-02-22T21:52:12.795+0000] {data_validation.py:435} INFO - Data validated and saved to /opt/***/data/validated/qa_pairs_validated.json
+[2026-02-22T21:52:12.797+0000] {data_validation.py:439} INFO - Validation complete: 7 passed, 0 failed, 5 warnings
+[2026-02-22T21:52:12.839+0000] {alerts.py:279} CRITICAL - ALERT [pipeline_failure]: Pipeline Failed - DAG 'automend_data_pipeline' failed at task 'validate_data'.
+[2026-02-22T21:52:12.863+0000] {alerts.py:193} WARNING - Slack webhook URL not configured, skipping Slack alert
+[2026-02-22T21:52:12.865+0000] {alerts.py:227} WARNING - Alert email not configured, skipping email alert
+[2026-02-22T21:52:12.866+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-02-22T21:52:12.868+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 460, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/automend_pipeline_dag.py", line 180, in task_validate_data
+    alert_anomalies_detected(
+  File "/opt/airflow/scripts/alerts.py", line 425, in alert_anomalies_detected
+    "types": ", ".join(set(anomaly_types)[:5])
+                       ~~~~~~~~~~~~~~~~~~^^^^
+TypeError: 'set' object is not subscriptable
+[2026-02-22T21:52:12.916+0000] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=automend_data_pipeline, task_id=validate_data, run_id=manual__2026-02-22T21:49:30.853010+00:00, execution_date=20260222T214930, start_date=20260222T215202, end_date=20260222T215212
+[2026-02-22T21:52:12.948+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 21 for task validate_data ('set' object is not subscriptable; 151)
+[2026-02-22T21:52:12.978+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2026-02-22T21:52:13.023+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-02-22T21:52:13.033+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

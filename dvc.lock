@@ -1,0 +1,154 @@
+schema: '2.0'
+stages:
+  acquire_data:
+    cmd: python scripts/data_acquisition.py --use-csv
+    deps:
+    - path: data/external/Stack_Ans_pl.csv
+      hash: md5
+      md5: 9ed7e87c698114b49f3ec089fbe1403d
+      size: 27301571
+    - path: data/external/Stack_Qns_pl.csv
+      hash: md5
+      md5: 513aa016823e00f96216ec8479ab909e
+      size: 38288067
+    - path: scripts/config.py
+      hash: md5
+      md5: bdf1c60e76b73aad9b950ed45f7d6bfc
+      size: 5335
+    - path: scripts/data_acquisition.py
+      hash: md5
+      md5: 889635979a5a799d99153c6b409c3e67
+      size: 14795
+    params:
+      params.yaml:
+        acquisition.min_score: 5
+        acquisition.use_csv: true
+    outs:
+    - path: data/raw/qa_pairs_raw.json
+      hash: md5
+      md5: ff3501d667bdcfaaa3e21d56b5a38ea3
+      size: 49722926
+  preprocess:
+    cmd: python scripts/data_preprocessing.py
+    deps:
+    - path: data/raw/qa_pairs_raw.json
+      hash: md5
+      md5: ff3501d667bdcfaaa3e21d56b5a38ea3
+      size: 49722926
+    - path: scripts/config.py
+      hash: md5
+      md5: bdf1c60e76b73aad9b950ed45f7d6bfc
+      size: 5335
+    - path: scripts/data_preprocessing.py
+      hash: md5
+      md5: 322ee0121a083778ea3d2fd6c77941a1
+      size: 11817
+    params:
+      params.yaml:
+        preprocessing.min_answer_length: 50
+        preprocessing.min_question_length: 20
+    outs:
+    - path: data/processed/qa_pairs_processed.csv
+      hash: md5
+      md5: d8e3c1669e5e766ccee37f04e624cc3e
+      size: 50146358
+    - path: data/processed/qa_pairs_processed.json
+      hash: md5
+      md5: e51e137bfe0f92779f92f49e601cfe59
+      size: 59268834
+  validate:
+    cmd: python scripts/data_validation.py
+    deps:
+    - path: data/processed/qa_pairs_processed.json
+      hash: md5
+      md5: e51e137bfe0f92779f92f49e601cfe59
+      size: 59268834
+    - path: scripts/config.py
+      hash: md5
+      md5: bdf1c60e76b73aad9b950ed45f7d6bfc
+      size: 5335
+    - path: scripts/data_validation.py
+      hash: md5
+      md5: f49550b30d5c21bb9acabd1a6f0f6645
+      size: 17767
+    outs:
+    - path: data/validated/qa_pairs_validated.json
+      hash: md5
+      md5: e51e137bfe0f92779f92f49e601cfe59
+      size: 59268834
+    - path: reports/statistics/data_statistics.json
+      hash: md5
+      md5: bc30917a592dc42af26c96f7cc2865ae
+      size: 2445
+    - path: reports/validation/validation_metrics.json
+      hash: md5
+      md5: d641bfdb34a3b466e539c8526cb8f877
+      size: 220
+    - path: reports/validation/validation_report.json
+      hash: md5
+      md5: ee7ad8938869e533ef21122aa35a2b08
+      size: 6202
+  detect_bias:
+    cmd: python scripts/bias_detection.py
+    deps:
+    - path: data/validated/qa_pairs_validated.json
+      hash: md5
+      md5: e51e137bfe0f92779f92f49e601cfe59
+      size: 59268834
+    - path: scripts/bias_detection.py
+      hash: md5
+      md5: 4c16c1c0f5b18f70ed5cc1a337153535
+      size: 18444
+    - path: scripts/config.py
+      hash: md5
+      md5: bdf1c60e76b73aad9b950ed45f7d6bfc
+      size: 5335
+    outs:
+    - path: reports/bias/bias_metrics.json
+      hash: md5
+      md5: 1ea04df8ccd7a669c06a7877256ec977
+      size: 266
+    - path: reports/bias/bias_report.json
+      hash: md5
+      md5: 8e20dc234a21894330c02cd47d462c88
+      size: 306503
+  generate_training:
+    cmd: python scripts/generate_training_data.py
+    deps:
+    - path: data/validated/qa_pairs_validated.json
+      hash: md5
+      md5: e51e137bfe0f92779f92f49e601cfe59
+      size: 59268834
+    - path: reports/bias/bias_report.json
+      hash: md5
+      md5: 8e20dc234a21894330c02cd47d462c88
+      size: 306503
+    - path: scripts/config.py
+      hash: md5
+      md5: bdf1c60e76b73aad9b950ed45f7d6bfc
+      size: 5335
+    - path: scripts/generate_training_data.py
+      hash: md5
+      md5: 4960fe4dc1335afd352d1a4b1c5a8c68
+      size: 12093
+    outs:
+    - path: data/training/test_data.json
+      hash: md5
+      md5: dc0f9c9c2150ff40a885929886f89f7b
+      size: 11073486
+    - path: data/training/test_data.jsonl
+      hash: md5
+      md5: 37c1821e4442062e50cef19d8773da65
+      size: 10127190
+    - path: data/training/training_data.json
+      hash: md5
+      md5: f6b0b96c35d84a4fcb31622510ec1cde
+      size: 44711598
+    - path: data/training/training_data.jsonl
+      hash: md5
+      md5: dffec03b8efaa2040e0f10cab53de864
+      size: 40923993
+    - path: data/training/training_stats.json
+      hash: md5
+      md5: e81a0d001772e55c16615fd1e13d19b5
+      size: 1077

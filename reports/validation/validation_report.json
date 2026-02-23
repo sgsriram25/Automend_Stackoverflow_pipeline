@@ -1,0 +1,247 @@
+{
+  "is_valid": true,
+  "total_checks": 7,
+  "passed_count": 7,
+  "failed_count": 0,
+  "warning_count": 5,
+  "passed": [
+    {
+      "check": "schema_required_columns",
+      "message": "All required columns present"
+    },
+    {
+      "check": "min_rows",
+      "message": "Row count (18780) meets minimum (100)"
+    },
+    {
+      "check": "missing_values",
+      "message": "Column 'question_id' has no missing values"
+    },
+    {
+      "check": "missing_values",
+      "message": "Column 'question_body' has no missing values"
+    },
+    {
+      "check": "missing_values",
+      "message": "Column 'answer_body' has no missing values"
+    },
+    {
+      "check": "duplicates",
+      "message": "No duplicate question_ids found"
+    },
+    {
+      "check": "text_quality",
+      "message": "Question lengths are acceptable"
+    }
+  ],
+  "failed": [],
+  "warnings": [
+    {
+      "check": "anomaly_detection",
+      "message": "Found 2179 outliers in 'score'"
+    },
+    {
+      "check": "anomaly_detection",
+      "message": "Found 2015 outliers in 'answer_score'"
+    },
+    {
+      "check": "anomaly_detection",
+      "message": "Found 1970 outliers in 'view_count'"
+    },
+    {
+      "check": "anomaly_detection",
+      "message": "Found 2156 outliers in 'quality_score'"
+    },
+    {
+      "check": "anomaly_detection",
+      "message": "Found 1324 records with uncleaned HTML"
+    }
+  ],
+  "statistics": {
+    "total_rows": 18780,
+    "question_id_missing_ratio": 0.0,
+    "question_body_missing_ratio": 0.0,
+    "answer_body_missing_ratio": 0.0,
+    "duplicate_ratio": 0.0,
+    "question_length": {
+      "min": 35,
+      "max": 28306,
+      "mean": 1331.4140575079873,
+      "median": 845.0
+    },
+    "answer_length": {
+      "min": 50,
+      "max": 18813,
+      "mean": 929.4425452609158,
+      "median": 621.0
+    },
+    "score_distribution": {
+      "count": 18780.0,
+      "mean": 28.091214057507987,
+      "std": 94.30208343970024,
+      "min": 6.0,
+      "25%": 7.0,
+      "50%": 11.0,
+      "75%": 21.0,
+      "max": 4498.0
+    },
+    "quality_score_distribution": {
+      "count": 18780.0,
+      "mean": 192.7970851970181,
+      "std": 633.4836190550039,
+      "min": 10.62,
+      "25%": 49.02,
+      "50%": 78.11500000000001,
+      "75%": 149.4075,
+      "max": 24731.49
+    },
+    "tag_distribution": {
+      "docker": 8481,
+      "python": 3427,
+      "tensorflow": 3182,
+      "kubernetes": 2896,
+      "amazon-web-services": 1752,
+      "docker-compose": 1739,
+      "aws-lambda": 1577,
+      "pytorch": 1057,
+      "dockerfile": 1036,
+      "keras": 951,
+      "terraform": 882,
+      "deep-learning": 646,
+      "machine-learning": 615,
+      "node.js": 575,
+      "gpu": 538,
+      "airflow": 478,
+      "linux": 398,
+      "neural-network": 354,
+      "python-3.x": 341,
+      "kubectl": 326
+    },
+    "error_signature_distribution": {
+      "NetworkError": 4101,
+      "ConfigError": 6941,
+      "PermissionDenied": 679,
+      "GPUError": 1323,
+      "Timeout": 872,
+      "OOMKilled": 210,
+      "ConnectionRefused": 317,
+      "ImagePullBackOff": 51,
+      "CrashLoopBackOff": 47,
+      "ResourceExhausted": 14
+    },
+    "score_outliers": 2179,
+    "answer_score_outliers": 2015,
+    "view_count_outliers": 1970,
+    "quality_score_outliers": 2156,
+    "total_anomalies": 8320,
+    "generated_at": "2026-02-22T20:18:05.031140",
+    "row_count": 18780,
+    "column_count": 16,
+    "columns": [
+      "question_id",
+      "title",
+      "question_body",
+      "answer_body",
+      "tags",
+      "score",
+      "answer_score",
+      "view_count",
+      "error_signatures",
+      "infra_components",
+      "question_type",
+      "complexity",
+      "question_metrics",
+      "answer_metrics",
+      "quality_score",
+      "processed_at"
+    ],
+    "numeric_statistics": {
+      "question_id": {
+        "count": 18780,
+        "mean": 50289865.19323748,
+        "std": 13088180.546423305,
+        "min": 28147.0,
+        "25%": 41690875.0,
+        "50%": 50953359.5,
+        "75%": 59716075.75,
+        "max": 79826535.0
+      },
+      "score": {
+        "count": 18780,
+        "mean": 28.091214057507987,
+        "std": 94.30208343970024,
+        "min": 6.0,
+        "25%": 7.0,
+        "50%": 11.0,
+        "75%": 21.0,
+        "max": 4498.0
+      },
+      "answer_score": {
+        "count": 18780,
+        "mean": 32.473801916932906,
+        "std": 123.0169947850287,
+        "min": -75.0,
+        "25%": 6.0,
+        "50%": 12.0,
+        "75%": 25.0,
+        "max": 4902.0
+      },
+      "view_count": {
+        "count": 18780,
+        "mean": 36215.66735889244,
+        "std": 98047.95361627362,
+        "min": 125.0,
+        "25%": 6489.75,
+        "50%": 13947.0,
+        "75%": 30869.25,
+        "max": 3846505.0
+      },
+      "quality_score": {
+        "count": 18780,
+        "mean": 192.7970851970181,
+        "std": 633.4836190550039,
+        "min": 10.62,
+        "25%": 49.02,
+        "50%": 78.11500000000001,
+        "75%": 149.4075,
+        "max": 24731.49
+      }
+    },
+    "text_statistics": {
+      "title": {
+        "avg_length": 58.7769435569755,
+        "min_length": 10,
+        "max_length": 150,
+        "total_chars": 1103831
+      },
+      "question_body": {
+        "avg_length": 1331.4140575079873,
+        "min_length": 35,
+        "max_length": 28306,
+        "total_chars": 25003956
+      },
+      "answer_body": {
+        "avg_length": 929.4425452609158,
+        "min_length": 50,
+        "max_length": 18813,
+        "total_chars": 17454931
+      }
+    },
+    "question_type_distribution": {
+      "how_to": 5865,
+      "general": 5330,
+      "error_resolution": 3824,
+      "troubleshooting": 1656,
+      "definition": 1283,
+      "explanation": 478,
+      "best_practice": 344
+    },
+    "complexity_distribution": {
+      "moderate": 18263,
+      "complex": 480,
+      "simple": 37
+    }
+  },
+  "start_time": "2026-02-22T20:18:03.136481",
+  "end_time": "2026-02-22T20:18:05.114465"
+}

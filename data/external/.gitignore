@@ -1,0 +1,12 @@
+# Ignore all data files (tracked by DVC)
+# raw/
+# processed/
+# validated/
+# training/
+# 
+# # Keep external data directory structure
+# !external/
+# external/*
+# !external/.gitkeep
+/Stack_Qns_pl.csv
+/Stack_Ans_pl.csv

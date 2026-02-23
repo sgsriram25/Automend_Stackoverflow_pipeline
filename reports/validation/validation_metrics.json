@@ -1,0 +1,10 @@
+{
+  "is_valid": true,
+  "passed_checks": 7,
+  "failed_checks": 0,
+  "warning_checks": 5,
+  "total_records": 18780,
+  "anomaly_count": 8320,
+  "duplicate_count": 0.0,
+  "timestamp": "2026-02-22T20:18:05.120884"
+}

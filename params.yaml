@@ -1,0 +1,91 @@
+# =============================================================================
+# AutoMend Pipeline Parameters
+# =============================================================================
+# This file contains all configurable parameters for the DVC pipeline.
+# Modify these values to experiment with different configurations.
+# DVC will track parameter changes and enable reproducibility.
+
+# -----------------------------------------------------------------------------
+# Data Acquisition Parameters
+# -----------------------------------------------------------------------------
+acquisition:
+  use_csv: true                    # Use local CSV files instead of API
+  min_score: 5                     # Minimum question score to include
+  questions_per_tag: 15            # Questions to fetch per tag (API mode)
+  api_delay: 2.0                   # Delay between API requests (seconds)
+  batch_size: 100                  # Answers to fetch per API batch
+  tags:                            # Tags to fetch from StackOverflow
+    - kubernetes
+    - terraform
+    - docker
+    - gpu
+    - mlops
+    - airflow
+    - prometheus
+    - grafana
+    - aws-lambda
+    - tensorflow
+    - pytorch
+
+# -----------------------------------------------------------------------------
+# Data Preprocessing Parameters
+# -----------------------------------------------------------------------------
+preprocessing:
+  min_question_length: 20          # Minimum question body length (chars)
+  min_answer_length: 50            # Minimum answer body length (chars)
+  remove_code_blocks: false        # Whether to remove code blocks from text
+  normalize_whitespace: true       # Normalize multiple spaces/newlines
+  extract_code_separately: true    # Keep code blocks as separate field
+
+# -----------------------------------------------------------------------------
+# Data Validation Parameters
+# -----------------------------------------------------------------------------
+validation:
+  max_missing_ratio: 0.10          # Maximum allowed missing value ratio (10%)
+  min_rows: 100                    # Minimum required rows
+  max_duplicate_ratio: 0.05        # Maximum allowed duplicate ratio (5%)
+  outlier_method: "iqr"            # Outlier detection method: "iqr" or "zscore"
+  outlier_threshold: 1.5           # IQR multiplier for outlier detection
+
+# -----------------------------------------------------------------------------
+# Bias Detection Parameters
+# -----------------------------------------------------------------------------
+bias_detection:
+  threshold: 0.25                  # Bias threshold (25% difference)
+  min_slice_samples: 30            # Minimum samples per slice for analysis
+  slice_by:                        # Dimensions to slice data by
+    - question_type
+    - complexity
+    - tags
+    - error_signatures
+    - infra_components
+
+# -----------------------------------------------------------------------------
+# Training Data Generation Parameters
+# -----------------------------------------------------------------------------
+training:
+  test_split: 0.2                  # Fraction of data for test set
+  random_seed: 42                  # Random seed for reproducibility
+  output_format: "chat"            # Format: "chat" or "completion"
+  apply_mitigation: true           # Apply bias mitigation
+  mitigation_strategy: "resample"  # Strategy: "resample", "weight", or "both"
+  max_oversample_ratio: 2.0        # Maximum oversampling ratio
+
+# -----------------------------------------------------------------------------
+# Quality Score Weights
+# -----------------------------------------------------------------------------
+quality:
+  question_score_weight: 2.0       # Weight for question upvotes
+  answer_score_weight: 3.0         # Weight for answer upvotes
+  view_count_weight: 0.001         # Weight for view count
+  code_block_weight: 0.5           # Weight for code examples
+  has_accepted_answer_bonus: 10.0  # Bonus for having accepted answer
+
+# -----------------------------------------------------------------------------
+# Alerting Thresholds
+# -----------------------------------------------------------------------------
+alerts:
+  anomaly_count_threshold: 100     # Alert if more than N anomalies
+  bias_severity_threshold: "medium" # Alert if bias severity >= this level
+  validation_failure_alert: true   # Send alert on validation failure
+  pipeline_completion_alert: true  # Send alert on pipeline completion

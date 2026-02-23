@@ -1,0 +1,20 @@
+[2026-02-23T00:25:07.464+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-02-23T00:25:07.782+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: automend_data_pipeline.generate_training_data scheduled__2026-02-22T00:00:00+00:00 [queued]>
+[2026-02-23T00:25:07.802+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: automend_data_pipeline.generate_training_data scheduled__2026-02-22T00:00:00+00:00 [queued]>
+[2026-02-23T00:25:07.810+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 3
+[2026-02-23T00:25:07.838+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): generate_training_data> on 2026-02-22 00:00:00+00:00
+[2026-02-23T00:25:07.850+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=188) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2026-02-23T00:25:07.854+0000] {standard_task_runner.py:63} INFO - Started process 191 to run task
+[2026-02-23T00:25:07.855+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'automend_data_pipeline', 'generate_training_data', 'scheduled__2026-02-22T00:00:00+00:00', '--job-id', '15', '--raw', '--subdir', 'DAGS_FOLDER/automend_pipeline_dag.py', '--cfg-path', '/tmp/tmphd5ruval']
+[2026-02-23T00:25:07.861+0000] {standard_task_runner.py:91} INFO - Job 15: Subtask generate_training_data
+[2026-02-23T00:25:07.988+0000] {task_command.py:426} INFO - Running <TaskInstance: automend_data_pipeline.generate_training_data scheduled__2026-02-22T00:00:00+00:00 [running]> on host eebbfbfd60c7
+[2026-02-23T00:25:08.165+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='mlops-team' AIRFLOW_CTX_DAG_ID='automend_data_pipeline' AIRFLOW_CTX_TASK_ID='generate_training_data' AIRFLOW_CTX_EXECUTION_DATE='2026-02-22T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-02-22T00:00:00+00:00'
+[2026-02-23T00:25:08.168+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-02-23T00:25:20.995+0000] {python.py:237} INFO - Done. Returned value was: {'total_examples': 18780, 'output_path': '/opt/***/data/training/training_data.json', 'jsonl_path': '/opt/***/data/training/training_data.jsonl'}
+[2026-02-23T00:25:20.997+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-02-23T00:25:21.036+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=automend_data_pipeline, task_id=generate_training_data, run_id=scheduled__2026-02-22T00:00:00+00:00, execution_date=20260222T000000, start_date=20260223T002507, end_date=20260223T002521
+[2026-02-23T00:25:21.134+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2026-02-23T00:25:21.172+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-02-23T00:25:21.189+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

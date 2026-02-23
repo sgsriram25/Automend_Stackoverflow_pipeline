@@ -1,0 +1,21 @@
+[2026-02-22T21:26:47.301+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-02-22T21:26:47.364+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: automend_data_pipeline.start_pipeline manual__2026-02-22T21:26:41.068278+00:00 [queued]>
+[2026-02-22T21:26:47.388+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: automend_data_pipeline.start_pipeline manual__2026-02-22T21:26:41.068278+00:00 [queued]>
+[2026-02-22T21:26:47.403+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 3
+[2026-02-22T21:26:47.441+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): start_pipeline> on 2026-02-22 21:26:41.068278+00:00
+[2026-02-22T21:26:47.461+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=117) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2026-02-22T21:26:47.468+0000] {standard_task_runner.py:63} INFO - Started process 121 to run task
+[2026-02-22T21:26:47.466+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'automend_data_pipeline', 'start_pipeline', 'manual__2026-02-22T21:26:41.068278+00:00', '--job-id', '3', '--raw', '--subdir', 'DAGS_FOLDER/automend_pipeline_dag.py', '--cfg-path', '/tmp/tmp_ucldhou']
+[2026-02-22T21:26:47.475+0000] {standard_task_runner.py:91} INFO - Job 3: Subtask start_pipeline
+[2026-02-22T21:26:47.643+0000] {task_command.py:426} INFO - Running <TaskInstance: automend_data_pipeline.start_pipeline manual__2026-02-22T21:26:41.068278+00:00 [running]> on host bdb006c774ad
+[2026-02-22T21:26:48.379+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='mlops-team' AIRFLOW_CTX_DAG_ID='automend_data_pipeline' AIRFLOW_CTX_TASK_ID='start_pipeline' AIRFLOW_CTX_EXECUTION_DATE='2026-02-22T21:26:41.068278+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-02-22T21:26:41.068278+00:00'
+[2026-02-22T21:26:48.384+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-02-22T21:26:48.493+0000] {alerts.py:270} INFO - ALERT [pipeline_start]: Pipeline Started - DAG 'automend_data_pipeline' has started execution.
+[2026-02-22T21:26:48.507+0000] {python.py:237} INFO - Done. Returned value was: {'start_time': '2026-02-22T21:26:48.506888', 'dag_id': 'automend_data_pipeline', 'run_id': 'manual__2026-02-22T21:26:41.068278+00:00'}
+[2026-02-22T21:26:48.509+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-02-22T21:26:48.584+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=automend_data_pipeline, task_id=start_pipeline, run_id=manual__2026-02-22T21:26:41.068278+00:00, execution_date=20260222T212641, start_date=20260222T212647, end_date=20260222T212648
+[2026-02-22T21:26:48.656+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2026-02-22T21:26:49.142+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-02-22T21:26:49.148+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

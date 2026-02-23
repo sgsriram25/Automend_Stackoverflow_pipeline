@@ -1,0 +1,30 @@
+{
+  "start_time": "2026-02-22T20:18:54.477533",
+  "input_records": 18780,
+  "after_resampling": 18780,
+  "train_examples": 15024,
+  "test_examples": 3756,
+  "total_examples": 18780,
+  "test_ratio": 0.2,
+  "output_format": "chat",
+  "bias_mitigation_applied": true,
+  "output_files": {
+    "train_json": "C:\\Northeastern\\MSCS\\MLOps\\Automend_Stackoverflow_pipeline\\data\\training\\training_data.json",
+    "train_jsonl": "C:\\Northeastern\\MSCS\\MLOps\\Automend_Stackoverflow_pipeline\\data\\training\\training_data.jsonl",
+    "test_json": "C:\\Northeastern\\MSCS\\MLOps\\Automend_Stackoverflow_pipeline\\data\\training\\test_data.json",
+    "test_jsonl": "C:\\Northeastern\\MSCS\\MLOps\\Automend_Stackoverflow_pipeline\\data\\training\\test_data.jsonl"
+  },
+  "status": "success",
+  "tag_distribution": {
+    "docker": 6800,
+    "python": 2744,
+    "tensorflow": 2530,
+    "kubernetes": 2324,
+    "amazon-web-services": 1401,
+    "docker-compose": 1368,
+    "aws-lambda": 1269,
+    "pytorch": 855,
+    "dockerfile": 849,
+    "keras": 749
+  }
+}

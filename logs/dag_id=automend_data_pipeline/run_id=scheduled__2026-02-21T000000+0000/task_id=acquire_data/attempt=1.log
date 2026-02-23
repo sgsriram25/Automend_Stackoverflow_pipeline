@@ -1,0 +1,119 @@
+[2026-02-22T21:26:51.618+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-02-22T21:26:51.976+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: automend_data_pipeline.acquire_data scheduled__2026-02-21T00:00:00+00:00 [queued]>
+[2026-02-22T21:26:51.993+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: automend_data_pipeline.acquire_data scheduled__2026-02-21T00:00:00+00:00 [queued]>
+[2026-02-22T21:26:51.995+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 3
+[2026-02-22T21:26:52.024+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): acquire_data> on 2026-02-21 00:00:00+00:00
+[2026-02-22T21:26:52.038+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=130) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2026-02-22T21:26:52.043+0000] {standard_task_runner.py:63} INFO - Started process 135 to run task
+[2026-02-22T21:26:52.042+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'automend_data_pipeline', 'acquire_data', 'scheduled__2026-02-21T00:00:00+00:00', '--job-id', '6', '--raw', '--subdir', 'DAGS_FOLDER/automend_pipeline_dag.py', '--cfg-path', '/tmp/tmps5cro8eq']
+[2026-02-22T21:26:52.049+0000] {standard_task_runner.py:91} INFO - Job 6: Subtask acquire_data
+[2026-02-22T21:26:52.190+0000] {task_command.py:426} INFO - Running <TaskInstance: automend_data_pipeline.acquire_data scheduled__2026-02-21T00:00:00+00:00 [running]> on host bdb006c774ad
+[2026-02-22T21:26:52.407+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='mlops-team' AIRFLOW_CTX_DAG_ID='automend_data_pipeline' AIRFLOW_CTX_TASK_ID='acquire_data' AIRFLOW_CTX_EXECUTION_DATE='2026-02-21T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-02-21T00:00:00+00:00'
+[2026-02-22T21:26:52.409+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-02-22T21:26:52.438+0000] {data_acquisition.py:288} INFO - ============================================================
+[2026-02-22T21:26:52.439+0000] {data_acquisition.py:289} INFO - STARTING DATA ACQUISITION
+[2026-02-22T21:26:52.440+0000] {data_acquisition.py:290} INFO - Mode: CSV
+[2026-02-22T21:26:52.441+0000] {data_acquisition.py:291} INFO - ============================================================
+[2026-02-22T21:26:52.443+0000] {data_acquisition.py:148} INFO - Loading questions from CSV: /opt/***/data/external/Stack_Qns_pl.csv
+[2026-02-22T21:27:03.205+0000] {data_acquisition.py:179} INFO - Loaded 19624 questions from CSV
+[2026-02-22T21:27:03.207+0000] {data_acquisition.py:185} INFO - Loading answers from CSV: /opt/***/data/external/Stack_Ans_pl.csv
+[2026-02-22T21:27:09.129+0000] {data_acquisition.py:208} INFO - Loaded 18838 answers from CSV
+[2026-02-22T21:27:13.329+0000] {data_acquisition.py:366} INFO - Successfully saved 18838 Q&A pairs to /opt/***/data/raw/qa_pairs_raw.json
+[2026-02-22T21:27:13.339+0000] {data_acquisition.py:383} INFO - Acquisition completed in 20.9s
+[2026-02-22T21:27:13.419+0000] {python.py:237} INFO - Done. Returned value was: {'source': 'csv', 'start_time': '2026-02-22T21:26:52.443272', 'questions_loaded': 19624, 'answers_matched': 18838, 'output_file': '/opt/***/data/raw/qa_pairs_raw.json', 'total_pairs': 18838, 'status': 'success', 'end_time': '2026-02-22T21:27:13.331820', 'duration_seconds': 20.888574}
+[2026-02-22T21:27:13.420+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-02-22T21:27:13.462+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=automend_data_pipeline, task_id=acquire_data, run_id=scheduled__2026-02-21T00:00:00+00:00, execution_date=20260221T000000, start_date=20260222T212651, end_date=20260222T212713
+[2026-02-22T21:27:13.504+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2026-02-22T21:27:13.554+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-02-22T21:27:13.562+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2026-02-22T22:03:43.388+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-02-22T22:03:43.772+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: automend_data_pipeline.acquire_data scheduled__2026-02-21T00:00:00+00:00 [queued]>
+[2026-02-22T22:03:43.796+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: automend_data_pipeline.acquire_data scheduled__2026-02-21T00:00:00+00:00 [queued]>
+[2026-02-22T22:03:43.797+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 3
+[2026-02-22T22:03:43.830+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): acquire_data> on 2026-02-21 00:00:00+00:00
+[2026-02-22T22:03:43.846+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=130) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2026-02-22T22:03:43.852+0000] {standard_task_runner.py:63} INFO - Started process 141 to run task
+[2026-02-22T22:03:43.852+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'automend_data_pipeline', 'acquire_data', 'scheduled__2026-02-21T00:00:00+00:00', '--job-id', '5', '--raw', '--subdir', 'DAGS_FOLDER/automend_pipeline_dag.py', '--cfg-path', '/tmp/tmpz_al3ohf']
+[2026-02-22T22:03:43.859+0000] {standard_task_runner.py:91} INFO - Job 5: Subtask acquire_data
+[2026-02-22T22:03:44.011+0000] {task_command.py:426} INFO - Running <TaskInstance: automend_data_pipeline.acquire_data scheduled__2026-02-21T00:00:00+00:00 [running]> on host 285ed450eadc
+[2026-02-22T22:03:44.230+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='mlops-team' AIRFLOW_CTX_DAG_ID='automend_data_pipeline' AIRFLOW_CTX_TASK_ID='acquire_data' AIRFLOW_CTX_EXECUTION_DATE='2026-02-21T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-02-21T00:00:00+00:00'
+[2026-02-22T22:03:44.234+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-02-22T22:03:44.270+0000] {data_acquisition.py:297} INFO - ============================================================
+[2026-02-22T22:03:44.272+0000] {data_acquisition.py:298} INFO - STARTING DATA ACQUISITION
+[2026-02-22T22:03:44.273+0000] {data_acquisition.py:299} INFO - Mode: CSV
+[2026-02-22T22:03:44.274+0000] {data_acquisition.py:300} INFO - ============================================================
+[2026-02-22T22:03:44.276+0000] {data_acquisition.py:157} INFO - Loading questions from CSV: /opt/***/data/external/Stack_Qns_pl.csv
+[2026-02-22T22:03:53.153+0000] {data_acquisition.py:188} INFO - Loaded 19624 questions from CSV
+[2026-02-22T22:03:53.155+0000] {data_acquisition.py:194} INFO - Loading answers from CSV: /opt/***/data/external/Stack_Ans_pl.csv
+[2026-02-22T22:03:58.670+0000] {data_acquisition.py:217} INFO - Loaded 18838 answers from CSV
+[2026-02-22T22:04:03.726+0000] {data_acquisition.py:375} INFO - Successfully saved 18838 Q&A pairs to /opt/***/data/raw/qa_pairs_raw.json
+[2026-02-22T22:04:03.740+0000] {data_acquisition.py:392} INFO - Acquisition completed in 19.5s
+[2026-02-22T22:04:03.812+0000] {python.py:237} INFO - Done. Returned value was: {'source': 'csv', 'start_time': '2026-02-22T22:03:44.275609', 'questions_loaded': 19624, 'answers_matched': 18838, 'output_file': '/opt/***/data/raw/qa_pairs_raw.json', 'total_pairs': 18838, 'status': 'success', 'end_time': '2026-02-22T22:04:03.728199', 'duration_seconds': 19.452666}
+[2026-02-22T22:04:03.816+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-02-22T22:04:03.860+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=automend_data_pipeline, task_id=acquire_data, run_id=scheduled__2026-02-21T00:00:00+00:00, execution_date=20260221T000000, start_date=20260222T220343, end_date=20260222T220403
+[2026-02-22T22:04:03.942+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2026-02-22T22:04:03.961+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2026-02-22T22:19:02.617+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-02-22T22:19:03.025+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: automend_data_pipeline.acquire_data scheduled__2026-02-21T00:00:00+00:00 [queued]>
+[2026-02-22T22:19:03.049+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: automend_data_pipeline.acquire_data scheduled__2026-02-21T00:00:00+00:00 [queued]>
+[2026-02-22T22:19:03.051+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 3
+[2026-02-22T22:19:03.088+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): acquire_data> on 2026-02-21 00:00:00+00:00
+[2026-02-22T22:19:03.106+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=123) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2026-02-22T22:19:03.113+0000] {standard_task_runner.py:63} INFO - Started process 127 to run task
+[2026-02-22T22:19:03.113+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'automend_data_pipeline', 'acquire_data', 'scheduled__2026-02-21T00:00:00+00:00', '--job-id', '6', '--raw', '--subdir', 'DAGS_FOLDER/automend_pipeline_dag.py', '--cfg-path', '/tmp/tmpsaudrifk']
+[2026-02-22T22:19:03.125+0000] {standard_task_runner.py:91} INFO - Job 6: Subtask acquire_data
+[2026-02-22T22:19:03.341+0000] {task_command.py:426} INFO - Running <TaskInstance: automend_data_pipeline.acquire_data scheduled__2026-02-21T00:00:00+00:00 [running]> on host 5ed56cb79862
+[2026-02-22T22:19:03.553+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='mlops-team' AIRFLOW_CTX_DAG_ID='automend_data_pipeline' AIRFLOW_CTX_TASK_ID='acquire_data' AIRFLOW_CTX_EXECUTION_DATE='2026-02-21T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-02-21T00:00:00+00:00'
+[2026-02-22T22:19:03.556+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-02-22T22:19:03.585+0000] {data_acquisition.py:297} INFO - ============================================================
+[2026-02-22T22:19:03.587+0000] {data_acquisition.py:298} INFO - STARTING DATA ACQUISITION
+[2026-02-22T22:19:03.588+0000] {data_acquisition.py:299} INFO - Mode: CSV
+[2026-02-22T22:19:03.589+0000] {data_acquisition.py:300} INFO - ============================================================
+[2026-02-22T22:19:03.591+0000] {data_acquisition.py:157} INFO - Loading questions from CSV: /opt/***/data/external/Stack_Qns_pl.csv
+[2026-02-22T22:19:11.167+0000] {data_acquisition.py:188} INFO - Loaded 19624 questions from CSV
+[2026-02-22T22:19:11.169+0000] {data_acquisition.py:194} INFO - Loading answers from CSV: /opt/***/data/external/Stack_Ans_pl.csv
+[2026-02-22T22:19:16.515+0000] {data_acquisition.py:217} INFO - Loaded 18838 answers from CSV
+[2026-02-22T22:19:21.649+0000] {data_acquisition.py:375} INFO - Successfully saved 18838 Q&A pairs to /opt/***/data/raw/qa_pairs_raw.json
+[2026-02-22T22:19:21.658+0000] {data_acquisition.py:392} INFO - Acquisition completed in 18.1s
+[2026-02-22T22:19:21.733+0000] {python.py:237} INFO - Done. Returned value was: {'source': 'csv', 'start_time': '2026-02-22T22:19:03.591066', 'questions_loaded': 19624, 'answers_matched': 18838, 'output_file': '/opt/***/data/raw/qa_pairs_raw.json', 'total_pairs': 18838, 'status': 'success', 'end_time': '2026-02-22T22:19:21.651152', 'duration_seconds': 18.060121}
+[2026-02-22T22:19:21.734+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-02-22T22:19:21.776+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=automend_data_pipeline, task_id=acquire_data, run_id=scheduled__2026-02-21T00:00:00+00:00, execution_date=20260221T000000, start_date=20260222T221903, end_date=20260222T221921
+[2026-02-22T22:19:21.855+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2026-02-22T22:19:21.909+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-02-22T22:19:21.913+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2026-02-22T22:30:54.717+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-02-22T22:30:55.106+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: automend_data_pipeline.acquire_data scheduled__2026-02-21T00:00:00+00:00 [queued]>
+[2026-02-22T22:30:55.125+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: automend_data_pipeline.acquire_data scheduled__2026-02-21T00:00:00+00:00 [queued]>
+[2026-02-22T22:30:55.127+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 3
+[2026-02-22T22:30:55.157+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): acquire_data> on 2026-02-21 00:00:00+00:00
+[2026-02-22T22:30:55.171+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=115) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2026-02-22T22:30:55.176+0000] {standard_task_runner.py:63} INFO - Started process 119 to run task
+[2026-02-22T22:30:55.173+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'automend_data_pipeline', 'acquire_data', 'scheduled__2026-02-21T00:00:00+00:00', '--job-id', '5', '--raw', '--subdir', 'DAGS_FOLDER/automend_pipeline_dag.py', '--cfg-path', '/tmp/tmp59kbp3gi']
+[2026-02-22T22:30:55.180+0000] {standard_task_runner.py:91} INFO - Job 5: Subtask acquire_data
+[2026-02-22T22:30:55.331+0000] {task_command.py:426} INFO - Running <TaskInstance: automend_data_pipeline.acquire_data scheduled__2026-02-21T00:00:00+00:00 [running]> on host ded77bdd039b
+[2026-02-22T22:30:55.520+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='mlops-team' AIRFLOW_CTX_DAG_ID='automend_data_pipeline' AIRFLOW_CTX_TASK_ID='acquire_data' AIRFLOW_CTX_EXECUTION_DATE='2026-02-21T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-02-21T00:00:00+00:00'
+[2026-02-22T22:30:55.523+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-02-22T22:30:55.550+0000] {data_acquisition.py:297} INFO - ============================================================
+[2026-02-22T22:30:55.551+0000] {data_acquisition.py:298} INFO - STARTING DATA ACQUISITION
+[2026-02-22T22:30:55.553+0000] {data_acquisition.py:299} INFO - Mode: CSV
+[2026-02-22T22:30:55.554+0000] {data_acquisition.py:300} INFO - ============================================================
+[2026-02-22T22:30:55.555+0000] {data_acquisition.py:157} INFO - Loading questions from CSV: /opt/***/data/external/Stack_Qns_pl.csv
+[2026-02-22T22:31:03.243+0000] {data_acquisition.py:188} INFO - Loaded 19624 questions from CSV
+[2026-02-22T22:31:03.245+0000] {data_acquisition.py:194} INFO - Loading answers from CSV: /opt/***/data/external/Stack_Ans_pl.csv
+[2026-02-22T22:31:08.545+0000] {data_acquisition.py:217} INFO - Loaded 18838 answers from CSV
+[2026-02-22T22:31:15.067+0000] {data_acquisition.py:375} INFO - Successfully saved 18838 Q&A pairs to /opt/***/data/raw/qa_pairs_raw.json
+[2026-02-22T22:31:15.077+0000] {data_acquisition.py:392} INFO - Acquisition completed in 19.5s
+[2026-02-22T22:31:15.142+0000] {python.py:237} INFO - Done. Returned value was: {'source': 'csv', 'start_time': '2026-02-22T22:30:55.555134', 'questions_loaded': 19624, 'answers_matched': 18838, 'output_file': '/opt/***/data/raw/qa_pairs_raw.json', 'total_pairs': 18838, 'status': 'success', 'end_time': '2026-02-22T22:31:15.069324', 'duration_seconds': 19.514237}
+[2026-02-22T22:31:15.144+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-02-22T22:31:15.185+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=automend_data_pipeline, task_id=acquire_data, run_id=scheduled__2026-02-21T00:00:00+00:00, execution_date=20260221T000000, start_date=20260222T223055, end_date=20260222T223115
+[2026-02-22T22:31:15.247+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2026-02-22T22:31:15.296+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-02-22T22:31:15.301+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

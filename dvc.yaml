@@ -1,0 +1,149 @@
+# =============================================================================
+# FILE 1: dvc.yaml - DVC Pipeline Definition
+# =============================================================================
+# This file defines the DVC pipeline stages for data versioning and reproducibility
+
+stages:
+  # Stage 1: Data Acquisition
+  acquire_data:
+    cmd: python scripts/data_acquisition.py --use-csv
+    deps:
+      - scripts/data_acquisition.py
+      - scripts/config.py
+      - data/external/Stack_Qns_pl.csv
+      - data/external/Stack_Ans_pl.csv
+    outs:
+      - data/raw/qa_pairs_raw.json
+
+  # Stage 2: Data Preprocessing
+  preprocess:
+    cmd: python scripts/data_preprocessing.py
+    deps:
+      - scripts/data_preprocessing.py
+      - scripts/config.py
+      - data/raw/qa_pairs_raw.json
+    outs:
+      - data/processed/qa_pairs_processed.json
+      - data/processed/qa_pairs_processed.csv
+
+  # Stage 3: Data Validation
+  validate:
+    cmd: python scripts/data_validation.py
+    deps:
+      - scripts/data_validation.py
+      - scripts/config.py
+      - data/processed/qa_pairs_processed.json
+    outs:
+      - data/validated/qa_pairs_validated.json
+      - reports/validation/validation_report.json:
+          cache: false
+      - reports/validation/validation_metrics.json:
+          cache: false
+      - reports/statistics/data_statistics.json:
+          cache: false
+
+  # Stage 4: Bias Detection
+  detect_bias:
+    cmd: python scripts/bias_detection.py
+    deps:
+      - scripts/bias_detection.py
+      - scripts/config.py
+      - data/validated/qa_pairs_validated.json
+    outs:
+      - reports/bias/bias_report.json:
+          cache: false
+      - reports/bias/bias_metrics.json:
+          cache: false
+
+  # Stage 5: Generate Training Data
+  generate_training:
+    cmd: python scripts/generate_training_data.py
+    deps:
+      - scripts/generate_training_data.py
+      - scripts/config.py
+      - data/validated/qa_pairs_validated.json
+      - reports/bias/bias_report.json
+    outs:
+      - data/training/training_data.json
+      - data/training/training_data.jsonl
+      - data/training/test_data.json
+      - data/training/test_data.jsonl
+      - data/training/training_stats.json:
+          cache: false
+
+# =============================================================================
+# FILE 2: params.yaml - Pipeline Parameters
+# =============================================================================
+# Save as: params.yaml
+
+# acquisition:
+#   use_csv: true
+#   min_score: 5
+#   questions_per_tag: 50
+#   tags:
+#     - kubernetes
+#     - terraform
+#     - docker
+#     - gpu
+#     - mlops
+#     - airflow
+# 
+# preprocessing:
+#   min_question_length: 20
+#   min_answer_length: 50
+#   remove_code_blocks: false
+# 
+# validation:
+#   max_missing_ratio: 0.1
+#   min_rows: 100
+#   max_duplicate_ratio: 0.05
+# 
+# bias_detection:
+#   threshold: 0.25
+#   min_slice_samples: 30
+# 
+# training:
+#   test_split: 0.2
+#   random_seed: 42
+
+# =============================================================================
+# FILE 3: .dvc/.gitignore
+# =============================================================================
+# /config.local
+# /tmp
+# /cache
+
+# =============================================================================
+# FILE 4: .dvcignore
+# =============================================================================
+# Similar to .gitignore for DVC
+# 
+# # Ignore Python cache
+# __pycache__
+# *.pyc
+# 
+# # Ignore logs
+# logs/
+# 
+# # Ignore IDE files
+# .idea/
+# .vscode/
+
+# =============================================================================
+# FILE 5: data/external/.gitkeep
+# =============================================================================
+# (empty file to keep the directory in git)
+
+# =============================================================================
+# FILE 6: data/.gitignore  
+# =============================================================================
+# # Ignore all data files (tracked by DVC)
+# raw/
+# processed/
+# validated/
+# training/
+# 
+# # Keep external data directory structure
+# !external/
+# external/*
+# !external/.gitkeep
